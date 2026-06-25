@@ -1,0 +1,10 @@
+component,pdf_file,pdfplumber_chars,pdfplumber_weak_pages,page_count,image_only_likely,ocr_fallback_enabled,ocr_readable_pdf_cache_enabled,keep_runtime_cache,page_num,source,text_chars,raw_lines,kept_lines,dropped_lines,caption_lines,column_count,start_gate,stop_gate,stop_gate_mode
+hybrid_text_extraction,Test_5_1963_P345_348.pdf,0.0,4.0,4.0,1.0,1.0,0.0,0.0,,,,,,,,,,,
+page_extract,,,,,,,,,1.0,ocr_layout,3542.0,,,,,,,,
+layout_filter,,,,,,,,,1.0,ocr_layout,,95.0,84.0,11.0,0.0,2.0,"(1, 448.3911437988281)","(4, 428.8427429199219, 'museum_news_heading', 793.0698852539062, 1268.67041015625, 1970.0)",column_zone
+page_extract,,,,,,,,,2.0,ocr_layout,4027.0,,,,,,,,
+layout_filter,,,,,,,,,2.0,ocr_layout,,111.0,98.0,13.0,0.0,2.0,"(1, 448.3911437988281)","(4, 428.8427429199219, 'museum_news_heading', 793.0698852539062, 1268.67041015625, 1970.0)",column_zone
+page_extract,,,,,,,,,3.0,ocr_layout,4002.0,,,,,,,,
+layout_filter,,,,,,,,,3.0,ocr_layout,,115.0,98.0,17.0,0.0,2.0,"(1, 448.3911437988281)","(4, 428.8427429199219, 'museum_news_heading', 793.0698852539062, 1268.67041015625, 1970.0)",column_zone
+page_extract,,,,,,,,,4.0,ocr_layout,241.0,,,,,,,,
+layout_filter,,,,,,,,,4.0,ocr_layout,,99.0,10.0,89.0,0.0,3.0,"(1, 448.3911437988281)","(4, 428.8427429199219, 'museum_news_heading', 793.0698852539062, 1268.67041015625, 1970.0)",column_zone

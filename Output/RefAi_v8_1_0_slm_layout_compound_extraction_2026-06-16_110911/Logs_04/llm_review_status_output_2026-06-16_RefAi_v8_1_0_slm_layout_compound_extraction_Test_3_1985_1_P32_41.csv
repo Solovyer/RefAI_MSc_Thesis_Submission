@@ -1,0 +1,2 @@
+component,enabled,message
+llm_review,True,Anthropic requires api_key and model

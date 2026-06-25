@@ -1,0 +1,30 @@
+﻿# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter local files
+.ipynb_checkpoints/
+
+# Local secrets and environment files
+.env
+.env.*
+*.key
+*secret*
+*Secret*
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Temporary/local render files
+render_check*/
+*.tmp
+*.bak
+~$*

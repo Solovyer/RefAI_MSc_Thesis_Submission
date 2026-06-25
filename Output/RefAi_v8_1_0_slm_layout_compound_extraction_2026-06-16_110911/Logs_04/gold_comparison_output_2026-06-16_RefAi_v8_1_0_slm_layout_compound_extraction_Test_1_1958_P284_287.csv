@@ -1,0 +1,9 @@
+metric,value
+gold_rows,7
+output_rows,24
+gold_place_nonempty,7
+output_place_nonempty,23
+gold_province_nonempty,7
+output_province_nonempty,24
+gold_dating_nonempty,7
+output_dating_nonempty,9

@@ -1,0 +1,103 @@
+{
+  "flag_summary": {
+    "records_evaluated": 93,
+    "true_positive_flag": 36,
+    "false_positive_flag": 49,
+    "false_negative_unflagged": 3,
+    "true_negative_clean": 5,
+    "flag_precision": 0.4235294117647059,
+    "flag_recall": 0.9230769230769231,
+    "flag_f1": 0.5806451612903225,
+    "flag_specificity": 0.09259259259259259,
+    "top_difference_reasons": [
+      [
+        "dating_missing_or_different",
+        18
+      ],
+      [
+        "findings_missing_or_different",
+        15
+      ],
+      [
+        "features_missing_or_different",
+        9
+      ],
+      [
+        "place_not_in_gold",
+        7
+      ],
+      [
+        "dating_extra",
+        7
+      ],
+      [
+        "materials_missing_or_different",
+        7
+      ],
+      [
+        "features_extra",
+        1
+      ],
+      [
+        "findings_extra",
+        1
+      ],
+      [
+        "province_missing_or_different",
+        1
+      ]
+    ]
+  },
+  "llm_summary": {
+    "llm_rows": 93,
+    "llm_reviewed": 87,
+    "needs_correction": 65,
+    "auto_applied": 24,
+    "noise_records": 3,
+    "mixed_context": 12,
+    "top_correction_types": [
+      [
+        "none",
+        21
+      ],
+      [
+        "dating_assignment",
+        9
+      ],
+      [
+        "feature_bucket_conflict",
+        8
+      ],
+      [
+        "dating_and_feature_context",
+        4
+      ],
+      [
+        "findings_quarantine_release",
+        4
+      ],
+      [
+        "place_resolution",
+        4
+      ],
+      [
+        "multiple",
+        4
+      ],
+      [
+        "bucket_conflict",
+        3
+      ],
+      [
+        "dating_and_feature_bucket",
+        3
+      ],
+      [
+        "dating_and_findings",
+        2
+      ]
+    ],
+    "detected_final_changes": 0,
+    "detected_change_counts": []
+  }
+}

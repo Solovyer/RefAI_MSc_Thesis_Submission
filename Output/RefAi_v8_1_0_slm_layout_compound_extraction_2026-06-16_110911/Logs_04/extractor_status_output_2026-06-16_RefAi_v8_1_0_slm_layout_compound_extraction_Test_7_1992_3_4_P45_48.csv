@@ -1,0 +1,10 @@
+component,pdf_file,pdfplumber_chars,pdfplumber_weak_pages,page_count,image_only_likely,ocr_fallback_enabled,ocr_readable_pdf_cache_enabled,keep_runtime_cache,page_num,source,text_chars,raw_lines,kept_lines,dropped_lines,caption_lines,column_count,start_gate,stop_gate,stop_gate_mode
+hybrid_text_extraction,Test_7_1992_3_4_P45_48.pdf,0.0,4.0,4.0,1.0,1.0,0.0,0.0,,,,,,,,,,,
+page_extract,,,,,,,,,1.0,ocr_layout,2872.0,,,,,,,,
+layout_filter,,,,,,,,,1.0,ocr_layout,,100.0,71.0,29.0,0.0,3.0,,"(4, 2156.25, 'section_boundary:non_target_section_keyword', 781.0750122070312, 1254.9437255859375, 1990.0)",column_zone
+page_extract,,,,,,,,,2.0,ocr_layout,5561.0,,,,,,,,
+layout_filter,,,,,,,,,2.0,ocr_layout,,174.0,138.0,36.0,0.0,3.0,,"(4, 2156.25, 'section_boundary:non_target_section_keyword', 781.0750122070312, 1254.9437255859375, 1990.0)",column_zone
+page_extract,,,,,,,,,3.0,ocr_layout,6438.0,,,,,,,,
+layout_filter,,,,,,,,,3.0,ocr_layout,,217.0,163.0,54.0,0.0,3.0,,"(4, 2156.25, 'section_boundary:non_target_section_keyword', 781.0750122070312, 1254.9437255859375, 1990.0)",column_zone
+page_extract,,,,,,,,,4.0,ocr_layout,5737.0,,,,,,,,
+layout_filter,,,,,,,,,4.0,ocr_layout,,216.0,140.0,76.0,0.0,3.0,,"(4, 2156.25, 'section_boundary:non_target_section_keyword', 781.0750122070312, 1254.9437255859375, 1990.0)",column_zone

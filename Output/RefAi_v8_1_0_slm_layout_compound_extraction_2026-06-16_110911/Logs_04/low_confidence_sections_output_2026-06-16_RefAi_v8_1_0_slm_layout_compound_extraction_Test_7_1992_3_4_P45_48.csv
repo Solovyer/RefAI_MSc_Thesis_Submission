@@ -1,0 +1,6 @@
+pdf_file,section_id,page_range,segmentation_confidence,notes,segment_source
+Test_7_1992_3_4_P45_48.pdf,SEC_00001,1-3,1,continued_across_page:1->2;continued_across_page:2->3;missing_province_anchor;missing_place_heading,heuristic
+Test_7_1992_3_4_P45_48.pdf,SEC_00001,1-3,1,bibliographic_context_skipped,heuristic
+Test_7_1992_3_4_P45_48.pdf,SEC_00002,3-3,1,"place_heading:Wijnaldum(Van Wijnen,Franeker);missing_province_anchor;short_section",heuristic
+Test_7_1992_3_4_P45_48.pdf,SEC_00007,4-4,1,place_heading:Maas ging;missing_province_anchor;short_section,heuristic
+Test_7_1992_3_4_P45_48.pdf,SEC_00011,4-4,2,bibliographic_context_skipped,heuristic

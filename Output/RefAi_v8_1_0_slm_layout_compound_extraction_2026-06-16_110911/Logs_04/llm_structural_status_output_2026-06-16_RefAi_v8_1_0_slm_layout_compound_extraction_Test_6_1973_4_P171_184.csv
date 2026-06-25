@@ -1,0 +1,2 @@
+component,enabled,message
+llm_structural_segmentation,True,Anthropic requires api_key and model

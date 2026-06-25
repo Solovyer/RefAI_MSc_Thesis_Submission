@@ -1,0 +1,56 @@
+﻿row_id;source_pdf;source_page;table_number;table_name;row_type;material_group;material_code;material_label;level_1;level_2;level_3;level_4;description;description_main;abr_code;period_begin_code;period_begin_label;period_begin_group;period_end_code;period_end_label;period_end_group;date_range_text;indent_spaces
+7792;ABR_NL.pdf;256;9;PERIODE;entry;;;;;;;;Paleolithicum: tot 8800 vC;Paleolithicum;PALEO;;;;;;;tot 8800 vC;0
+7793;ABR_NL.pdf;256;9;PERIODE;entry;;;;Paleolithicum: tot 8800 vC;;;;Paleolithicum vroeg: tot 300000 C14;Paleolithicum vroeg;PALEOV;;;;;;;tot 300000 C14;4
+7794;ABR_NL.pdf;256;9;PERIODE;entry;;;;Paleolithicum: tot 8800 vC;;;;Paleolithicum midden: 300000 - 35000 C14;Paleolithicum midden;PALEOM;;;;;;;300000 - 35000 C14;4
+7795;ABR_NL.pdf;256;9;PERIODE;entry;;;;Paleolithicum: tot 8800 vC;;;;Paleolithicum laat: 35000 C14 - 8800 vC;Paleolithicum laat;PALEOL;;;;;;;35000 C14 - 8800 vC;4
+7796;ABR_NL.pdf;256;9;PERIODE;entry;;;;Paleolithicum: tot 8800 vC;;;;Paleolithicum laat A: 35000 - 18000 C14;Paleolithicum laat A;PALEOLA;;;;;;;35000 - 18000 C14;4
+7797;ABR_NL.pdf;256;9;PERIODE;entry;;;;Paleolithicum: tot 8800 vC;;;;Paleolithicum laat B: 18000 C14 -8800 vC;Paleolithicum laat B;PALEOLB;;;;;;;18000 C14 -8800 vC;4
+7798;ABR_NL.pdf;256;9;PERIODE;entry;;;;;;;;Mesolithicum: 8800 - 4900 vC;Mesolithicum;MESO;;;;;;;8800 - 4900 vC;0
+7799;ABR_NL.pdf;256;9;PERIODE;entry;;;;Mesolithicum: 8800 - 4900 vC;;;;Mesolithicum vroeg: 8800 - 7100 vC;Mesolithicum vroeg;MESOV;;;;;;;8800 - 7100 vC;4
+7800;ABR_NL.pdf;256;9;PERIODE;entry;;;;Mesolithicum: 8800 - 4900 vC;;;;Mesolithicum midden: 7100 - 6450 vC;Mesolithicum midden;MESOM;;;;;;;7100 - 6450 vC;4
+7801;ABR_NL.pdf;256;9;PERIODE;entry;;;;Mesolithicum: 8800 - 4900 vC;;;;Mesolithicum laat: 6450 -4900 vC;Mesolithicum laat;MESOL;;;;;;;6450 -4900 vC;4
+7802;ABR_NL.pdf;256;9;PERIODE;entry;;;;;;;;Neolithicum: 5300 - 2000 vC;Neolithicum;NEO;;;;;;;5300 - 2000 vC;0
+7803;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum vroeg: 5300 - 4200 vC;Neolithicum vroeg;NEOV;;;;;;;5300 - 4200 vC;4
+7804;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum vroeg A: 5300 - 4900 vC;Neolithicum vroeg A;NEOVA;;;;;;;5300 - 4900 vC;4
+7805;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum vroeg B: 4900 - 4200 vC;Neolithicum vroeg B;NEOVB;;;;;;;4900 - 4200 vC;4
+7806;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum midden: 4200 - 2850 vC;Neolithicum midden;NEOM;;;;;;;4200 - 2850 vC;4
+7807;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum midden A: 4200 - 3400 vC;Neolithicum midden A;NEOMA;;;;;;;4200 - 3400 vC;4
+7808;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum midden B: 3400 - 2850 vC;Neolithicum midden B;NEOMB;;;;;;;3400 - 2850 vC;4
+7809;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum laat: 2850 - 2000 vC;Neolithicum laat;NEOL;;;;;;;2850 - 2000 vC;4
+7810;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum laat A: 2850 - 2450 vC;Neolithicum laat A;NEOLA;;;;;;;2850 - 2450 vC;4
+7811;ABR_NL.pdf;256;9;PERIODE;entry;;;;Neolithicum: 5300 - 2000 vC;;;;Neolithicum laat B: 2450 - 2000 vC;Neolithicum laat B;NEOLB;;;;;;;2450 - 2000 vC;4
+7812;ABR_NL.pdf;256;9;PERIODE;entry;;;;;;;;Bronstijd: 2000 - 800 vC;Bronstijd;BRONS;;;;;;;2000 - 800 vC;0
+7813;ABR_NL.pdf;256;9;PERIODE;entry;;;;Bronstijd: 2000 - 800 vC;;;;Bronstijd vroeg: 2000 - 1800 vC;Bronstijd vroeg;BRONSV;;;;;;;2000 - 1800 vC;4
+7814;ABR_NL.pdf;256;9;PERIODE;entry;;;;Bronstijd: 2000 - 800 vC;;;;Bronstijd midden: 1800 - 1100 vC;Bronstijd midden;BRONSM;;;;;;;1800 - 1100 vC;4
+7815;ABR_NL.pdf;256;9;PERIODE;entry;;;;Bronstijd: 2000 - 800 vC;;;;Bronstijd midden A: 1800 - 1500 vC;Bronstijd midden A;BRONSMA;;;;;;;1800 - 1500 vC;4
+7816;ABR_NL.pdf;256;9;PERIODE;entry;;;;Bronstijd: 2000 - 800 vC;;;;Bronstijd midden B: 1500 - 1100 vC;Bronstijd midden B;BRONSMB;;;;;;;1500 - 1100 vC;4
+7817;ABR_NL.pdf;256;9;PERIODE;entry;;;;Bronstijd: 2000 - 800 vC;;;;Bronstijd laat: 1100 - 800 vC;Bronstijd laat;BRONSL;;;;;;;1100 - 800 vC;4
+7818;ABR_NL.pdf;256;9;PERIODE;entry;;;;;;;;IJzertijd: 800 - 12 vC;IJzertijd;IJZ;;;;;;;800 - 12 vC;0
+7819;ABR_NL.pdf;256;9;PERIODE;entry;;;;IJzertijd: 800 - 12 vC;;;;IJzertijd vroeg: 800 - 500 vC;IJzertijd vroeg;IJZV;;;;;;;800 - 500 vC;4
+7820;ABR_NL.pdf;256;9;PERIODE;entry;;;;IJzertijd: 800 - 12 vC;;;;IJzertijd midden: 500 - 250 vC;IJzertijd midden;IJZM;;;;;;;500 - 250 vC;4
+7821;ABR_NL.pdf;256;9;PERIODE;entry;;;;IJzertijd: 800 - 12 vC;;;;IJzertijd laat: 250 - 12 vC;IJzertijd laat;IJZL;;;;;;;250 - 12 vC;4
+7822;ABR_NL.pdf;256;9;PERIODE;entry;;;;;;;;Romeinse tijd: 12 vC - 450 nC;Romeinse tijd;ROM;;;;;;;12 vC - 450 nC;0
+7823;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd vroeg: 12 - 70 nC;Romeinse tijd vroeg;ROMV;;;;;;;12 - 70 nC;4
+7824;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd vroeg A: 12 vC - 25 nC;Romeinse tijd vroeg A;ROMVA;;;;;;;12 vC - 25 nC;4
+7825;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd vroeg B: 25 - 70 nC;Romeinse tijd vroeg B;ROMVB;;;;;;;25 - 70 nC;4
+7826;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd midden: 70 - 270 nC;Romeinse tijd midden;ROMM;;;;;;;70 - 270 nC;4
+7827;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd midden A: 70 - 150 nC;Romeinse tijd midden A;ROMMA;;;;;;;70 - 150 nC;4
+7828;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd midden B: 150 - 270 nC;Romeinse tijd midden B;ROMMB;;;;;;;150 - 270 nC;4
+7829;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd laat: 270 - 450 nC;Romeinse tijd laat;ROML;;;;;;;270 - 450 nC;4
+7830;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd laat A: 270 - 350 nC;Romeinse tijd laat A;ROMLA;;;;;;;270 - 350 nC;4
+7831;ABR_NL.pdf;256;9;PERIODE;entry;;;;Romeinse tijd: 12 vC - 450 nC;;;;Romeinse tijd laat B: 350 - 450 nC;Romeinse tijd laat B;ROMLB;;;;;;;350 - 450 nC;4
+7832;ABR_NL.pdf;257;9;PERIODE;entry;;;;;;;;Middeleeuwen: 450 - 1500 nC;Middeleeuwen;XME;;;;;;;450 - 1500 nC;0
+7833;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen vroeg: 450 - 1050 nC;Middeleeuwen vroeg;VME;;;;;;;450 - 1050 nC;4
+7834;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen vroeg A: 450 - 525 nC;Middeleeuwen vroeg A;VMEA;;;;;;;450 - 525 nC;4
+7835;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen vroeg B: 525 - 725 nC;Middeleeuwen vroeg B;VMEB;;;;;;;525 - 725 nC;4
+7836;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen vroeg C: 725 - 900 nC;Middeleeuwen vroeg C;VMEC;;;;;;;725 - 900 nC;4
+7837;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen vroeg D: 900 - 1050 nC;Middeleeuwen vroeg D;VMED;;;;;;;900 - 1050 nC;4
+7838;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen laat: 1050 - 1500 nC;Middeleeuwen laat;LME;;;;;;;1050 - 1500 nC;4
+7839;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen laat A: 1050 - 1250 nC;Middeleeuwen laat A;LMEA;;;;;;;1050 - 1250 nC;4
+7840;ABR_NL.pdf;257;9;PERIODE;entry;;;;Middeleeuwen: 450 - 1500 nC;;;;Middeleeuwen laat B: 1250 - 1500 nC;Middeleeuwen laat B;LMEB;;;;;;;1250 - 1500 nC;4
+7841;ABR_NL.pdf;257;9;PERIODE;entry;;;;;;;;Nieuwe tijd: 1500 - heden;Nieuwe tijd;NT;;;;;;;1500 - heden;0
+7842;ABR_NL.pdf;257;9;PERIODE;entry;;;;Nieuwe tijd: 1500 - heden;;;;Nieuwe tijd A: 1500 - 1650 nC;Nieuwe tijd A;NTA;;;;;;;1500 - 1650 nC;4
+7843;ABR_NL.pdf;257;9;PERIODE;entry;;;;Nieuwe tijd: 1500 - heden;;;;Nieuwe tijd B: 1650 - 1850 nC;Nieuwe tijd B;NTB;;;;;;;1650 - 1850 nC;4
+7844;ABR_NL.pdf;257;9;PERIODE;entry;;;;Nieuwe tijd: 1500 - heden;;;;Nieuwe tijd C: 1850 - heden;Nieuwe tijd C;NTC;;;;;;;1850 - heden;4
+7845;ABR_NL.pdf;257;9;PERIODE;entry;;;;;;;;Onbekend;Onbekend;XXX;;;;;;;;0
+7846;ABR_NL.pdf;257;9;PERIODE;entry;;;;;;;;Niet van toepassing;Niet van toepassing;---;;;;;;;;0

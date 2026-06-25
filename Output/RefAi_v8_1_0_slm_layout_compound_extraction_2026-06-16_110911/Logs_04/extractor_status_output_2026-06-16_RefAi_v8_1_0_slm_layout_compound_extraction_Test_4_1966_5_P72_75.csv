@@ -1,0 +1,10 @@
+component,pdf_file,pdfplumber_chars,pdfplumber_weak_pages,page_count,image_only_likely,ocr_fallback_enabled,ocr_readable_pdf_cache_enabled,keep_runtime_cache,page_num,source,text_chars,raw_lines,kept_lines,dropped_lines,caption_lines,column_count,start_gate,stop_gate,stop_gate_mode
+hybrid_text_extraction,Test_4_1966_5_P72_75.pdf,0.0,4.0,4.0,1.0,1.0,0.0,0.0,,,,,,,,,,,
+page_extract,,,,,,,,,1.0,ocr_layout,1366.0,,,,,,,,
+layout_filter,,,,,,,,,1.0,ocr_layout,,97.0,32.0,65.0,0.0,2.0,"(1, 1336.693603515625)","(4, 1278.6290283203125, 'layout_stop_heading', 687.0401000976562, 1315.430419921875, 2030.0)",column_zone
+page_extract,,,,,,,,,2.0,ocr_layout,4310.0,,,,,,,,
+layout_filter,,,,,,,,,2.0,ocr_layout,,110.0,105.0,5.0,0.0,2.0,"(1, 1336.693603515625)","(4, 1278.6290283203125, 'layout_stop_heading', 687.0401000976562, 1315.430419921875, 2030.0)",column_zone
+page_extract,,,,,,,,,3.0,ocr_layout,4043.0,,,,,,,,
+layout_filter,,,,,,,,,3.0,ocr_layout,,107.0,102.0,5.0,0.0,2.0,"(1, 1336.693603515625)","(4, 1278.6290283203125, 'layout_stop_heading', 687.0401000976562, 1315.430419921875, 2030.0)",column_zone
+page_extract,,,,,,,,,4.0,ocr_layout,2251.0,,,,,,,,
+layout_filter,,,,,,,,,4.0,ocr_layout,,109.0,56.0,53.0,0.0,2.0,"(1, 1336.693603515625)","(4, 1278.6290283203125, 'layout_stop_heading', 687.0401000976562, 1315.430419921875, 2030.0)",column_zone

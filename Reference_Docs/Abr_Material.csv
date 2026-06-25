@@ -1,0 +1,43 @@
+﻿row_id;source_pdf;source_page;table_number;table_name;row_type;material_group;material_code;material_label;level_1;level_2;level_3;level_4;description;description_main;abr_code;period_begin_code;period_begin_label;period_begin_group;period_end_code;period_end_label;period_end_group;date_range_text;indent_spaces
+244;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;;;;;Glas;Glas;GLS;;;;;;;;0
+245;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;;;;;Keramiek;Keramiek;KER;;;;;;;;0
+246;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;;;;;Metaal;Metaal;MXX;;;;;;;;0
+247;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;Brons;Brons;MBR;;;;;;;;3
+248;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;Goud;Goud;MAU;;;;;;;;3
+249;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;IJzer;IJzer;MFE;;;;;;;;3
+250;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;Koper;Koper;MCU;;;;;;;;3
+251;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;Lood;Lood;MPB;;;;;;;;3
+252;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;Messing;Messing;MME;;;;;;;;3
+253;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;Tin of lood-tin legering;Tin of lood-tin legering;MSN;;;;;;;;3
+254;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Metaal;;;;Zilver;Zilver;MAG;;;;;;;;3
+255;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;;;;;Organisch;Organisch;OXX;;;;;;;;0
+256;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Bot, dierlijk;Bot, dierlijk;ODB;;;;;;;;3
+257;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Bot, menselijk;Bot, menselijk;OMB;;;;;;;;3
+258;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Bot, onbekend;Bot, onbekend;OXB;;;;;;;;3
+259;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Gewei;Gewei;ODG;;;;;;;;3
+260;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Hoorn;Hoorn;ODH;;;;;;;;3
+261;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Hout/houtskool;Hout/houtskool;OPH;;;;;;;;3
+262;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Ivoor;Ivoor;ODI;;;;;;;;3
+263;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Leer/huid/bont;Leer/huid/bont;ODL;;;;;;;;3
+264;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Organisch dierlijk;Organisch dierlijk;ODX;;;;;;;;3
+265;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Organisch menselijk;Organisch menselijk;OMX;;;;;;;;3
+266;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Organisch plantaardig;Organisch plantaardig;OPX;;;;;;;;3
+267;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Schelp;Schelp;ODS;;;;;;;;3
+268;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Organisch;;;;Textiel:katoen/linnen/wol/zijde;Textiel:katoen/linnen/wol/zijde;OTE;;;;;;;;3
+269;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;;;;;Steen;Steen;SXX;;;;;;;;0
+270;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Barnsteen;Barnsteen;SBA;;;;;;;;3
+271;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Bergkristal;Bergkristal;SBE;;;;;;;;3
+272;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Diabaas/gabbro/doleriet/dioriet;Diabaas/gabbro/doleriet/dioriet;SDI;;;;;;;;3
+273;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Git;Git;SGI;;;;;;;;3
+274;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Graniet/gneis;Graniet/gneis;SGR;;;;;;;;3
+275;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Jadeiet/nefriet;Jadeiet/nefriet;SJA;;;;;;;;3
+276;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Kalk(steen);Kalk(steen);SKA;;;;;;;;3
+277;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Leisteen;Leisteen;SLE;;;;;;;;3
+278;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Marmer;Marmer;SMA;;;;;;;;3
+279;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Oker;Oker;SOK;;;;;;;;3
+280;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Tefriet/basaltlava;Tefriet/basaltlava;STE;;;;;;;;3
+281;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Tufsteen;Tufsteen;STU;;;;;;;;3
+282;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Vuursteen;Vuursteen;SVU;;;;;;;;3
+283;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Zandsteen/kwartsiet;Zandsteen/kwartsiet;SZA;;;;;;;;3
+284;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;Steen;;;;Onbekend;Onbekend;XXX;;;;;;;;3
+285;ABR_NL.pdf;12;7;MATERIAAL;entry;;;;;;;;Niet van toepassing;Niet van toepassing;---;;;;;;;;0

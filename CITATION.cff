@@ -1,0 +1,18 @@
+﻿cff-version: 1.2.0
+message: "If you use or refer to RefAI, please cite this thesis project."
+title: "RefAI: A controllable extraction and triage pipeline for Dutch archaeological news bulletins"
+type: software
+authors:
+  - family-names: "Verwoert"
+    given-names: "Tobias O. S."
+version: "1.0-thesis"
+date-released: "2026-06-24"
+abstract: "RefAI is a research prototype for extracting, normalising and reviewing structured archaeological information from KNOB Archaeological News bulletins using a lookup-first hybrid pipeline, reference documents, review flags and an optional LLM second-reader layer."
+keywords:
+  - "digital archaeology"
+  - "information extraction"
+  - "OCR"
+  - "Dutch archaeology"
+  - "KNOB"
+  - "ABR"
+  - "human-in-the-loop"

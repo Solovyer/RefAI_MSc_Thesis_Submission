@@ -1,0 +1,100 @@
+﻿row_id;source_pdf;source_page;table_number;table_name;row_type;material_group;material_code;material_label;level_1;level_2;level_3;level_4;description;description_main;abr_code;period_begin_code;period_begin_label;period_begin_group;period_end_code;period_end_label;period_end_group;date_range_text;indent_spaces
+112;ABR_NL.pdf;8;5;COMPLEX;entry;;;;;;;;Depot;Depot;DEPO;;;;;;;;0
+113;ABR_NL.pdf;8;5;COMPLEX;header;;;;;;;;Economie;Economie;;;;;;;;;0
+114;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Akker/tuin;Akker/tuin;ELA;;;;;;;;3
+115;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Beenbewerking;Beenbewerking;EIBB;;;;;;;;3
+116;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Brouwerij;Brouwerij;EIB;;;;;;;;3
+117;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Celtic field/raatakker;Celtic field/raatakker;ELCF;;;;;;;;3
+118;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Drenkplaats/dobbe;Drenkplaats/dobbe;ELDP;;;;;;;;3
+119;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Economie, onbepaald;Economie, onbepaald;EX;;;;;;;;3
+120;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Eendekooi;Eendekooi;ELEK;;;;;;;;3
+121;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Glasblazerij;Glasblazerij;EIGB;;;;;;;;3
+122;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Grondstofwinning;Grondstofwinning;EGX;;;;;;;;3
+123;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Houtbewerking;Houtbewerking;EIHB;;;;;;;;3
+124;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Houtskool-/kolenbranderij;Houtskool-/kolenbranderij;EIHK;;;;;;;;3
+125;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;IJzerwinning;IJzerwinning;EGYW;;;;;;;;3
+126;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Industrie/nijverheid;Industrie/nijverheid;EIX;;;;;;;;3
+127;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Kalkbranderij;Kalkbranderij;EIKB;;;;;;;;3
+128;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Kleiwinning;Kleiwinning;EGKW;;;;;;;;3
+129;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Landbouw;Landbouw;ELX;;;;;;;;3
+130;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Leerlooierij;Leerlooierij;EILL;;;;;;;;3
+131;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Mergel-/kalkwinning;Mergel-/kalkwinning;EGMW;;;;;;;;3
+132;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Metaalbewerking/smederij;Metaalbewerking/smederij;EIMB;;;;;;;;3
+133;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Molen;Molen;EIM;;;;;;;;3
+134;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Pottenbakkerij;Pottenbakkerij;EIPB;;;;;;;;3
+135;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Scheepvaart;Scheepvaart;ESCH;;;;;;;;3
+136;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Smelterij;Smelterij;EISM;;;;;;;;3
+137;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Steen-/pannenbakkerij;Steen-/pannenbakkerij;EISB;;;;;;;;3
+138;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Textielnijverheid;Textielnijverheid;EITN;;;;;;;;3
+139;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Veekraal/schaapskooi;Veekraal/schaapskooi;ELVK;;;;;;;;3
+140;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Veenwinning;Veenwinning;EGVW;;;;;;;;3
+141;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Visserij;Visserij;EVX;;;;;;;;3
+142;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Vuursteenbewerking;Vuursteenbewerking;EIVB;;;;;;;;3
+143;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Vuursteenwinning;Vuursteenwinning;EGVW;;;;;;;;3
+144;ABR_NL.pdf;8;5;COMPLEX;entry;;;;Economie;;;;Zoutwinning/moernering;Zoutwinning/moernering;EGZW;;;;;;;;3
+145;ABR_NL.pdf;9;5;COMPLEX;header;;;;;;;;Begraving;Begraving;;;;;;;;;0
+146;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Crematiegraf;Crematiegraf;GC;;;;;;;;2
+147;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Dieregraf;Dieregraf;GD;;;;;;;;2
+148;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafheuvel, crematie;Grafheuvel, crematie;GHC;;;;;;;;2
+149;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafheuvel, gemengd;Grafheuvel, gemengd;GHIC;;;;;;;;2
+150;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafheuvel, inhumatie;Grafheuvel, inhumatie;GHI;;;;;;;;2
+151;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafheuvel, onbepaald;Grafheuvel, onbepaald;GHX;;;;;;;;2
+152;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafveld, crematies;Grafveld, crematies;GVC;;;;;;;;2
+153;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafveld, gemengd;Grafveld, gemengd;GVIC;;;;;;;;2
+154;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafveld, inhumaties;Grafveld, inhumaties;GVI;;;;;;;;2
+155;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Grafveld, onbepaald;Grafveld, onbepaald;GVX;;;;;;;;2
+156;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Graf, onbepaald;Graf, onbepaald;GX;;;;;;;;2
+157;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Inhumatiegraf;Inhumatiegraf;GI;;;;;;;;2
+158;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Kerkhof;Kerkhof;GVIK;;;;;;;;2
+159;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Megalietgraf;Megalietgraf;GMEG;;;;;;;;2
+160;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Rijengrafveld;Rijengrafveld;GVIR;;;;;;;;2
+161;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Urnenveld;Urnenveld;GVCU;;;;;;;;2
+162;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Vlakgraf, crematie;Vlakgraf, crematie;GCV;;;;;;;;2
+163;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Vlakgraf, inhumatie;Vlakgraf, inhumatie;GIV;;;;;;;;2
+164;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Begraving;;;;Vlakgraf, onbepaald;Vlakgraf, onbepaald;GXV;;;;;;;;2
+165;ABR_NL.pdf;9;5;COMPLEX;header;;;;;;;;Infrastructuur;Infrastructuur;;;;;;;;;0
+166;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Brug;Brug;IBRU;;;;;;;;4
+167;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Dam;Dam;IDAM;;;;;;;;4
+168;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Dijk;Dijk;IDIJ;;;;;;;;4
+169;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Duiker;Duiker;IDUI;;;;;;;;4
+170;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Gemaal;Gemaal;IGEM;;;;;;;;4
+171;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Haven;Haven;IHAV;;;;;;;;4
+172;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Infrastructuur, onbepaald;Infrastructuur, onbepaald;IX;;;;;;;;4
+173;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Kanaal/vaarweg;Kanaal/vaarweg;IKAN;;;;;;;;4
+174;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Percelering/verkaveling;Percelering/verkaveling;IPER;;;;;;;;4
+175;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Sluis;Sluis;ISLU;;;;;;;;4
+176;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Steiger;Steiger;ISTE;;;;;;;;4
+177;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Veenweg/veenbrug;Veenweg/veenbrug;IVW;;;;;;;;4
+178;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Waterweg (natuurlijk);Waterweg (natuurlijk);IWAT;;;;;;;;4
+179;ABR_NL.pdf;9;5;COMPLEX;entry;;;;Infrastructuur;;;;Weg;Weg;IWEG;;;;;;;;4
+180;ABR_NL.pdf;10;5;COMPLEX;header;;;;;;;;Nederzettingstype;Nederzettingstype;;;;;;;;;0
+181;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Basiskamp/-nederzetting;Basiskamp/-nederzetting;NBAS;;;;;;;;2
+182;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Borg/stins/versterkt huis;Borg/stins/versterkt huis;NVB;;;;;;;;2
+183;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Extractiekamp/-nederzetting;Extractiekamp/-nederzetting;NEXT;;;;;;;;2
+184;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Havezathe/ridderhofstad;Havezathe/ridderhofstad;NVH;;;;;;;;2
+185;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Huisplaats, onverhoogd;Huisplaats, onverhoogd;NHP;;;;;;;;2
+186;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Huisterp;Huisterp;NHT;;;;;;;;2
+187;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Kampdorp;Kampdorp;NKD;;;;;;;;2
+188;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Moated site;Moated site;NMS;;;;;;;;2
+189;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Nederzetting, onbepaald;Nederzetting, onbepaald;NX;;;;;;;;2
+190;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Romeins villa(complex);Romeins villa(complex);NRV;;;;;;;;2
+191;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Stad;Stad;NS;;;;;;;;2
+192;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Terp/wierde;Terp/wierde;NT;;;;;;;;2
+193;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Nederzettingstype;;;;Wegdorp;Wegdorp;NWD;;;;;;;;2
+194;ABR_NL.pdf;10;5;COMPLEX;header;;;;;;;;Religie;Religie;;;;;;;;;0
+195;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Religie;;;;Cultusplaats/heiligdom/tempel;Cultusplaats/heiligdom/tempel;RCP;;;;;;;;3
+196;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Religie;;;;Kapel;Kapel;RKAP;;;;;;;;3
+197;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Religie;;;;Kerk;Kerk;RKER;;;;;;;;3
+198;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Religie;;;;Klooster(complex);Klooster(complex);RKLO;;;;;;;;3
+199;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Religie;;;;Religie, onbepaald;Religie, onbepaald;RX;;;;;;;;3
+200;ABR_NL.pdf;10;5;COMPLEX;header;;;;;;;;Versterking;Versterking;;;;;;;;;0
+201;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Kasteel;Kasteel;VK;;;;;;;;2
+202;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Landweer;Landweer;VLW;;;;;;;;2
+203;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Legerplaats;Legerplaats;VLP;;;;;;;;2
+204;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Motte/kasteelheuvel/vliedberg;Motte/kasteelheuvel/vliedberg;VKM;;;;;;;;2
+205;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Schans;Schans;VSCH;;;;;;;;2
+206;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Wachtpost;Wachtpost;VWP;;;;;;;;2
+207;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Wal-/vluchtburcht;Wal-/vluchtburcht;VWB;;;;;;;;2
+208;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Wal/omwalling;Wal/omwalling;VWAL;;;;;;;;2
+209;ABR_NL.pdf;10;5;COMPLEX;entry;;;;Versterking;;;;Waterburcht;Waterburcht;VKW;;;;;;;;2
+210;ABR_NL.pdf;10;5;COMPLEX;entry;;;;;;;;Onbekend;Onbekend;XXX;;;;;;;;0

@@ -1,0 +1,6 @@
+pdf_file,section_id,page_range,segmentation_confidence,notes,segment_source
+Test_6_1973_4_P171_184.pdf,SEC_00002,2-3,3,bibliographic_context_skipped,heuristic
+Test_6_1973_4_P171_184.pdf,SEC_00003,3-4,3,bibliographic_context_skipped,heuristic
+Test_6_1973_4_P171_184.pdf,SEC_00009,10-10,3,bibliographic_context_skipped,heuristic
+Test_6_1973_4_P171_184.pdf,SEC_00015,13-14,3,bibliographic_context_skipped,heuristic
+Test_6_1973_4_P171_184.pdf,SEC_00016,14-14,3,bibliographic_context_skipped,heuristic

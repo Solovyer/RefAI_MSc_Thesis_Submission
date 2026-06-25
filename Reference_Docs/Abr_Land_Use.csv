@@ -1,0 +1,16 @@
+﻿row_id;source_pdf;source_page;table_number;table_name;row_type;material_group;material_code;material_label;level_1;level_2;level_3;level_4;description;description_main;abr_code;period_begin_code;period_begin_label;period_begin_group;period_end_code;period_end_label;period_end_group;date_range_text;indent_spaces
+85;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Akkerbouw/tuinbouw/bouwvoor;Akkerbouw/tuinbouw/bouwvoor;AKK;;;;;;;;0
+86;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Bebouwing/erf/weg/kerkhof;Bebouwing/erf/weg/kerkhof;BEB;;;;;;;;0
+87;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Boomgaard;Boomgaard;BOO;;;;;;;;0
+88;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Bos;Bos;BOS;;;;;;;;0
+89;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Duin;Duin;DUI;;;;;;;;0
+90;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Grasland/weideland;Grasland/weideland;GRA;;;;;;;;0
+91;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Groeve;Groeve;GRO;;;;;;;;0
+92;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Heide;Heide;HEI;;;;;;;;0
+93;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Onbekend;Onbekend;XXX;;;;;;;;0
+94;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Secundair/opgebrachte grond;Secundair/opgebrachte grond;SEC;;;;;;;;0
+95;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Sloot(kant)/oever;Sloot(kant)/oever;SLO;;;;;;;;0
+96;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Strand;Strand;STR;;;;;;;;0
+97;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Veen;Veen;VEE;;;;;;;;0
+98;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Water/geul/bank/plaat;Water/geul/bank/plaat;WAT;;;;;;;;0
+99;ABR_NL.pdf;6;3;GRONDGEBRUIK;entry;;;;;;;;Zand(verstuiving);Zand(verstuiving);ZAN;;;;;;;;0

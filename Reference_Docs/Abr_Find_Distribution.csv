@@ -1,0 +1,27 @@
+﻿row_id;source_pdf;source_page;table_number;table_name;row_type;material_group;material_code;material_label;level_1;level_2;level_3;level_4;description;description_main;abr_code;period_begin_code;period_begin_label;period_begin_group;period_end_code;period_end_label;period_end_group;date_range_text;indent_spaces
+16;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: veldkartering;Archeologisch: veldkartering;AKA;;;;;;;;0
+17;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: begeleiding;Archeologisch: begeleiding;ABE;;;;;;;;0
+18;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: booronderzoek;Archeologisch: booronderzoek;ABO;;;;;;;;0
+19;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: bureauonderzoek;Archeologisch: bureauonderzoek;ABU;;;;;;;;0
+20;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: duikactiviteiten;Archeologisch: duikactiviteiten;ADU;;;;;;;;0
+21;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: geofysisch onderzoek;Archeologisch: geofysisch onderzoek;AGO;;;;;;;;0
+22;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: inspectie;Archeologisch: inspectie;AIN;;;;;;;;0
+23;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: onbepaald;Archeologisch: onbepaald;AXX;;;;;;;;0
+24;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: onderwaterarcheologie;Archeologisch: onderwaterarcheologie;AOW;;;;;;;;0
+25;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: opgraving;Archeologisch: opgraving;AOP;;;;;;;;0
+26;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: proefputten / proefsleuven;Archeologisch: proefputten / proefsleuven;APP;;;;;;;;0
+27;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Archeologisch: verwachtingskaart;Archeologisch: verwachtingskaart;AVE;;;;;;;;0
+28;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Indirect: archief;Indirect: archief;IAR;;;;;;;;0
+29;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Indirect: collectie;Indirect: collectie;ICO;;;;;;;;0
+30;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Indirect: literatuur;Indirect: literatuur;ILI;;;;;;;;0
+31;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Indirect: onbepaald;Indirect: onbepaald;IXX;;;;;;;;0
+32;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Luchtfoto/remote sensing;Luchtfoto/remote sensing;LUC;;;;;;;;0
+33;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: duikactiviteiten;Niet-archeologisch: duikactiviteiten;NDU;;;;;;;;0
+34;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: baggerwerk;Niet-archeologisch: baggerwerk;NBA;;;;;;;;0
+35;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: boring;Niet-archeologisch: boring;NBO;;;;;;;;0
+36;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: graafwerk;Niet-archeologisch: graafwerk;NGR;;;;;;;;0
+37;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: kartering;Niet-archeologisch: kartering;NKA;;;;;;;;0
+38;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: metaaldetector;Niet-archeologisch: metaaldetector;NDE;;;;;;;;0
+39;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: onbepaald;Niet-archeologisch: onbepaald;NXX;;;;;;;;0
+40;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Niet-archeologisch: waterwerk en exploitatie;Niet-archeologisch: waterwerk en exploitatie;NWA;;;;;;;;0
+41;ABR_NL.pdf;4;1;VONDSTVERWERVING;entry;;;;;;;;Onbekend;Onbekend;XXX;;;;;;;;0

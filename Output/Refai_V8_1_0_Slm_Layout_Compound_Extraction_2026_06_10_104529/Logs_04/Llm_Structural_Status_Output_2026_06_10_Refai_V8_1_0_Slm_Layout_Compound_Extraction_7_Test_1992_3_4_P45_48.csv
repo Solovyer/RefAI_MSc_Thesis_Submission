@@ -1,0 +1,3 @@
+component,enabled,model,message
+llm_structural_segmentation,True,claude-haiku-4-5-20251001,ok
+llm_structural_segmentation_policy,True,,reviewer_only_mode_primary_segmentation_uses_heuristic

@@ -1,0 +1,30 @@
+component,pdf_file,pdfplumber_chars,pdfplumber_weak_pages,page_count,image_only_likely,ocr_fallback_enabled,ocr_readable_pdf_cache_enabled,keep_runtime_cache,page_num,source,text_chars,raw_lines,kept_lines,dropped_lines,caption_lines,column_count,start_gate,stop_gate,stop_gate_mode
+hybrid_text_extraction,Test_6_1973_4_P171_184.pdf,0.0,14.0,14.0,1.0,1.0,0.0,0.0,,,,,,,,,,,
+page_extract,,,,,,,,,1.0,ocr_layout,3586.0,,,,,,,,
+layout_filter,,,,,,,,,1.0,ocr_layout,,97.0,86.0,11.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,2.0,ocr_layout,4372.0,,,,,,,,
+layout_filter,,,,,,,,,2.0,ocr_layout,,120.0,105.0,15.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,3.0,ocr_layout,4529.0,,,,,,,,
+layout_filter,,,,,,,,,3.0,ocr_layout,,113.0,107.0,6.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,4.0,ocr_layout,4388.0,,,,,,,,
+layout_filter,,,,,,,,,4.0,ocr_layout,,114.0,103.0,11.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,5.0,ocr_layout,4399.0,,,,,,,,
+layout_filter,,,,,,,,,5.0,ocr_layout,,115.0,105.0,10.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,6.0,ocr_layout,4501.0,,,,,,,,
+layout_filter,,,,,,,,,6.0,ocr_layout,,110.0,107.0,3.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,7.0,ocr_layout,4358.0,,,,,,,,
+layout_filter,,,,,,,,,7.0,ocr_layout,,120.0,107.0,13.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,8.0,ocr_layout,4404.0,,,,,,,,
+layout_filter,,,,,,,,,8.0,ocr_layout,,112.0,105.0,7.0,1.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,9.0,ocr_layout,4344.0,,,,,,,,
+layout_filter,,,,,,,,,9.0,ocr_layout,,110.0,105.0,5.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,10.0,ocr_layout,4432.0,,,,,,,,
+layout_filter,,,,,,,,,10.0,ocr_layout,,114.0,105.0,9.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,11.0,ocr_layout,4637.0,,,,,,,,
+layout_filter,,,,,,,,,11.0,ocr_layout,,113.0,108.0,5.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,12.0,ocr_layout,4458.0,,,,,,,,
+layout_filter,,,,,,,,,12.0,ocr_layout,,120.0,105.0,15.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,13.0,ocr_layout,3973.0,,,,,,,,
+layout_filter,,,,,,,,,13.0,ocr_layout,,112.0,100.0,12.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
+page_extract,,,,,,,,,14.0,ocr_layout,2525.0,,,,,,,,
+layout_filter,,,,,,,,,14.0,ocr_layout,,102.0,64.0,38.0,0.0,2.0,"(1, 453.2782287597656)","(14, 1505.225830078125, 'section_boundary:non_target_section_keyword', 493.0249938964844, 1566.857421875, 1924.0)",page
