@@ -1531,20 +1531,20 @@ def extract_trigger_phrases(sentence: str) -> List[str]:
 
 
 def make_output_stem(refai_version_name: str, pdf_path: Path) -> str:
-    date_str = datetime.now().strftime("%Y-%m-%d")
+    """Create a readable, Excel-safe filename stem without repeating run metadata."""
     doc_name = re.sub(r"[^\w\-]+", "_", pdf_path.stem).strip("_")
-    version_name = re.sub(r"[^\w\-]+", "_", refai_version_name).strip("_")
-    return f"output_{date_str}_{version_name}_{doc_name}"
+    # The run folder and run_config already preserve timestamp and version details.
+    # Keeping filenames compact avoids Excel's practical 259-character path limit.
+    return (doc_name or "document")[:80].rstrip("_-")
 
 
 def make_run_folder_name(refai_version_name: str, run_timestamp: Optional[datetime] = None) -> str:
     """
-    One notebook execution gets one clearly named folder:
-    VERSION_NAME_DATE_TIME.
+    Give each notebook execution a short dated folder. The full pipeline version
+    remains recorded in run_config, rather than being repeated in every path.
     """
     run_timestamp = run_timestamp or datetime.now()
-    version_name = re.sub(r"[^\w\-]+", "_", refai_version_name).strip("_")
-    return f"{version_name}_{run_timestamp.strftime('%Y-%m-%d_%H%M%S')}"
+    return f"Run_{run_timestamp.strftime('%Y%m%d_%H%M%S')}"
 
 
 # =========================
@@ -6491,17 +6491,35 @@ for pdf_name in pdf_names_to_run:
     })
 
 batch_summary_df = pd.DataFrame(batch_results)
+
+
+def show_result_table(value: Any) -> None:
+    """Render tables in Jupyter and fall back to readable text in PowerShell."""
+    try:
+        from IPython import get_ipython
+        if get_ipython() is not None:
+            from IPython.display import display as ipython_display
+            ipython_display(value)
+            return
+    except Exception:
+        pass
+    if isinstance(value, pd.DataFrame):
+        print(value.to_string(index=False))
+    else:
+        print(value)
+
+
 print("\nBatch summary")
-display(batch_summary_df)
+show_result_table(batch_summary_df)
 
 quality_summary_df, suspect_records_df = build_batch_quality_outputs(batch_results)
 print("\nBatch quality summary")
-display(quality_summary_df)
+show_result_table(quality_summary_df)
 print(f"Suspect records: {len(suspect_records_df)}")
 
 if batch_results:
-    display(output_df.head(20))
+    show_result_table(output_df.head(20))
     for key in ["extractor_status", "low_confidence_sections", "gold_comparison", "unmapped_terms"]:
         if key in review_frames and not review_frames[key].empty:
             print(f"\nPreview last run: {key}")
-            display(review_frames[key].head(20))
+            show_result_table(review_frames[key].head(20))

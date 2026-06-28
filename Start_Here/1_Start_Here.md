@@ -132,6 +132,8 @@ inside a run are:
 - `Quality_Control_00`: suspect records and batch-quality summaries.
 
 Use the newest date-time folder when reviewing a new run.
+New runs use compact folder and file names so that Excel can open the results
+even when the repository was extracted inside a longer Downloads path.
 
 ## Problems Observed During Installation Tests
 
@@ -191,6 +193,13 @@ option `1`.
 
 First run menu option `2`. If the installation check reports failures, run
 option `1` again. JupyterLab should only be started after installation passes.
+
+### Excel Reports That the File Path Is Longer Than 259 Characters
+
+This can affect outputs created by an older RefAI version with very long run
+and file names. Copy the required `.xlsx` file to a short location such as
+`C:\RefAI_Output\result.xlsx` and open that copy. New runs use shorter names and
+should not encounter this Excel limitation.
 
 ### The First Model Run Is Slow
 
