@@ -28,3 +28,7 @@ render_check*/
 *.tmp
 *.bak
 ~$*
+
+# Runtime outputs created by local validation and extraction runs
+Output/Run_*/
+Output/Installation_Check_Latest.txt

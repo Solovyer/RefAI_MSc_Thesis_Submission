@@ -19,9 +19,27 @@ $env:REFAI_ENABLE_LLM_REVIEW = "false"
 $env:REFAI_RUN_BATCH_PDFS = "true"
 
 Write-Host "Starting RefAI SLM-only batch..." -ForegroundColor Cyan
+$RunStartedAt = Get-Date
 & $VenvPython $Pipeline
 if ($LASTEXITCODE -ne 0) {
     throw "RefAI SLM-only run failed with exit code $LASTEXITCODE."
 }
 
-Write-Host "Run completed. Check the newest folder in Output." -ForegroundColor Green
+$LatestRun = Get-ChildItem -LiteralPath (Join-Path $PackageRoot "Output") -Directory -Filter "Run_*" |
+    Sort-Object LastWriteTime -Descending |
+    Select-Object -First 1
+if (-not $LatestRun -or $LatestRun.LastWriteTime -lt $RunStartedAt.AddMinutes(-1)) {
+    throw "No new RefAI run folder was found after the SLM-only command."
+}
+$SuccessMarker = Join-Path $LatestRun.FullName "RUN_COMPLETED_SUCCESSFULLY.txt"
+if (-not (Test-Path -LiteralPath $SuccessMarker)) {
+    $IncompleteMarker = Join-Path $LatestRun.FullName "RUN_INCOMPLETE.txt"
+    if (Test-Path -LiteralPath $IncompleteMarker) {
+        Get-Content -LiteralPath $IncompleteMarker | Write-Host -ForegroundColor Red
+    }
+    throw "The newest run has no RUN_COMPLETED_SUCCESSFULLY marker and must not be treated as valid output."
+}
+
+Write-Host ""
+Get-Content -LiteralPath $SuccessMarker | Write-Host -ForegroundColor Green
+Write-Host "Open Reviewed_Outputs_01 for the SLM-only results." -ForegroundColor Cyan

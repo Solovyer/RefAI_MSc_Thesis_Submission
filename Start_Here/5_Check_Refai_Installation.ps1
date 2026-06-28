@@ -5,19 +5,23 @@ $PackageRoot = Split-Path -Parent $StartHere
 $VenvPython = Join-Path $PackageRoot ".venv\Scripts\python.exe"
 $Failures = 0
 $Warnings = 0
+$ReportLines = [System.Collections.Generic.List[string]]::new()
 
 function Pass($Message) {
     Write-Host "[PASS] $Message" -ForegroundColor Green
+    $script:ReportLines.Add("[PASS] $Message")
 }
 
 function Fail($Message) {
     $script:Failures++
     Write-Host "[FAIL] $Message" -ForegroundColor Red
+    $script:ReportLines.Add("[FAIL] $Message")
 }
 
 function Warn($Message) {
     $script:Warnings++
     Write-Host "[WARN] $Message" -ForegroundColor Yellow
+    $script:ReportLines.Add("[WARN] $Message")
 }
 
 function Check-Path($RelativePath, $Label) {
@@ -95,6 +99,29 @@ print("All required imports succeeded.")
     } else {
         Fail "One or more Python imports failed:"
         Write-Host $ImportResult
+        $ReportLines.Add(($ImportResult | Out-String).Trim())
+    }
+
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "Checking ArcheoBERTje model availability. The first check may download approximately 440 MB..." -ForegroundColor Cyan
+        $ModelCode = @'
+import os
+os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
+from transformers import AutoModel, AutoTokenizer
+model_name = "alexbrandsen/ArcheoBERTje"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModel.from_pretrained(model_name)
+model.eval()
+print(f"ArcheoBERTje model load succeeded: {model_name}")
+'@
+        $ModelResult = $ModelCode | & $VenvPython - 2>&1
+        if ($LASTEXITCODE -eq 0) {
+            Pass "ArcheoBERTje model is downloaded and loadable."
+        } else {
+            Fail "ArcheoBERTje could not be downloaded or loaded. Do not run the pipeline until this is resolved."
+            Write-Host $ModelResult
+            $ReportLines.Add(($ModelResult | Out-String).Trim())
+        }
     }
 }
 
@@ -106,6 +133,23 @@ if ($env:ANTHROPIC_API_KEY) {
 
 Write-Host ""
 Write-Host "Check complete: $Failures failure(s), $Warnings warning(s)."
+
+$ReportPath = Join-Path $PackageRoot "Output\Installation_Check_Latest.txt"
+$ReportHeader = @(
+    "RefAI installation check",
+    "Checked at: $((Get-Date).ToString('s'))",
+    "Package root: $PackageRoot",
+    "Python: $Version",
+    "",
+    "Results:"
+)
+$ReportFooter = @(
+    "",
+    "Check complete: $Failures failure(s), $Warnings warning(s)."
+)
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent $ReportPath) | Out-Null
+Set-Content -LiteralPath $ReportPath -Value ($ReportHeader + $ReportLines + $ReportFooter) -Encoding UTF8
+Write-Host "Installation-check report: $ReportPath"
 
 if ($Failures -gt 0) {
     exit 1

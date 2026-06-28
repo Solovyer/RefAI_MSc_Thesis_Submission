@@ -11,10 +11,11 @@ from __future__ import annotations
 # package root. API keys are never stored here; set ANTHROPIC_API_KEY only in the
 # local environment when the optional LLM second-reader layer is used.
 
-import json, math, os, re
+import json, math, os, platform, re, sys, traceback
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from difflib import SequenceMatcher, get_close_matches
+from importlib import metadata as importlib_metadata
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
@@ -2312,6 +2313,8 @@ class ReferenceStore:
 # locally, it remains reproducible and independent of the LLM.
 
 class ArcheoBERTjeHelper:
+    _shared_runtime_cache: Dict[Tuple[str, str, str], Dict[str, Any]] = {}
+
     def __init__(self, cfg: RunConfig, refs: ReferenceStore):
         ensure_archaeobertje_dependencies(cfg.enable_archaeobertje)
         self.cfg = cfg
@@ -2331,7 +2334,21 @@ class ArcheoBERTjeHelper:
         self.index = {}
         self._embed_cache = {}
         self._raw_mapping_cache = {}
+        self.reused_shared_cache = False
         if not self.enabled:
+            return
+        cache_key = (
+            self.model_name,
+            self.device,
+            str(Path(cfg.refs_dir).resolve()),
+        )
+        cached_runtime = self._shared_runtime_cache.get(cache_key)
+        if cached_runtime:
+            self.tokenizer = cached_runtime["tokenizer"]
+            self.model = cached_runtime["model"]
+            self.index = cached_runtime["index"]
+            self.available = True
+            self.reused_shared_cache = True
             return
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
@@ -2339,6 +2356,11 @@ class ArcheoBERTjeHelper:
             self.model.to(self.device)
             self.model.eval()
             self._build_indexes()
+            self._shared_runtime_cache[cache_key] = {
+                "tokenizer": self.tokenizer,
+                "model": self.model,
+                "index": self.index,
+            }
             self.available = True
         except Exception as e:
             self.available = False
@@ -5327,6 +5349,7 @@ class ArchaeologyPipeline:
                 "available": self.archaeobertje.available,
                 "model_name": self.cfg.archaeobertje_model_name,
                 "device": self.cfg.archaeobertje_device,
+                "reused_shared_cache": self.archaeobertje.reused_shared_cache,
                 "message": self.archaeobertje.error_message or "ok",
             })
         self.review_logs["llm_structural_status"].extend(self.llm_structural_segmenter.status_rows)
@@ -6177,6 +6200,8 @@ class ArchaeologyPipeline:
                 "Raw_Outputs_03 = full raw pipeline exports with all columns\n"
                 "Logs_04 = diagnostics, status logs and run configuration\n"
                 "Quality_Control_00 = batch-level suspect records and summary, created after the run loop\n"
+                "RUN_COMPLETED_SUCCESSFULLY.txt = the complete batch and quality-control stage finished\n"
+                "RUN_INCOMPLETE.txt = do not treat this folder as valid output; inspect Logs_04/Run_Diagnostics.json\n"
             )
         self.output_paths = {
             "run_dir": str(out_dir),
@@ -6376,6 +6401,130 @@ def build_batch_quality_outputs(batch_results: List[Dict[str, Any]]) -> Tuple[pd
 RUN_STARTED_AT = datetime.now()
 RUN_FOLDER_NAME = make_run_folder_name(REFAI_VERSION_NAME, RUN_STARTED_AT)
 RUN_OUTPUT_DIR = str(Path(OUTPUT_DIR) / RUN_FOLDER_NAME)
+RUN_MODE = "SLM + LLM" if (ENABLE_LLM_STRUCTURAL_SEGMENTATION or ENABLE_LLM_REVIEW) else "SLM-only"
+RUN_LOGS_DIR = Path(RUN_OUTPUT_DIR) / "Logs_04"
+RUN_INCOMPLETE_PATH = Path(RUN_OUTPUT_DIR) / "RUN_INCOMPLETE.txt"
+RUN_SUCCESS_PATH = Path(RUN_OUTPUT_DIR) / "RUN_COMPLETED_SUCCESSFULLY.txt"
+RUN_DIAGNOSTICS_PATH = RUN_LOGS_DIR / "Run_Diagnostics.json"
+
+
+def collect_runtime_versions() -> Dict[str, Any]:
+    package_names = [
+        "pandas", "openpyxl", "pdfplumber", "PyMuPDF", "Pillow", "numpy",
+        "requests", "torch", "transformers", "rapidocr-onnxruntime",
+        "jupyterlab", "ipykernel",
+    ]
+    versions = {}
+    for package_name in package_names:
+        try:
+            versions[package_name] = importlib_metadata.version(package_name)
+        except importlib_metadata.PackageNotFoundError:
+            versions[package_name] = "not installed"
+        except Exception as exc:
+            versions[package_name] = f"unavailable: {exc}"
+    return {
+        "python_version": platform.python_version(),
+        "python_executable": sys.executable,
+        "platform": platform.platform(),
+        "packages": versions,
+    }
+
+
+def collect_preflight_state(pdf_names: List[str]) -> Dict[str, Any]:
+    required_paths = {
+        "project_dir": PROJECT_DIR,
+        "pdf_dir": PDF_DIR,
+        "reference_dir": REFS_DIR,
+        "output_template": Path(OUTPUT_TEMPLATE),
+    }
+    pdf_state = {}
+    for pdf_name in pdf_names:
+        try:
+            resolved = Path(resolve_pdf_file(PDF_DIR, pdf_name))
+            pdf_state[pdf_name] = {"exists": resolved.exists(), "resolved_path": str(resolved)}
+        except Exception as exc:
+            pdf_state[pdf_name] = {"exists": False, "error": str(exc)}
+    installation_check = Path(OUTPUT_DIR) / "Installation_Check_Latest.txt"
+    return {
+        "required_paths": {
+            name: {"path": str(path), "exists": Path(path).exists()}
+            for name, path in required_paths.items()
+        },
+        "pdfs": pdf_state,
+        "installation_check": {
+            "path": str(installation_check),
+            "exists": installation_check.exists(),
+            "content": installation_check.read_text(encoding="utf-8-sig", errors="replace") if installation_check.exists() else "",
+        },
+    }
+
+
+def write_run_diagnostics(state: Dict[str, Any]) -> None:
+    ensure_dir(RUN_LOGS_DIR)
+    state["updated_at"] = datetime.now().isoformat(timespec="seconds")
+    RUN_DIAGNOSTICS_PATH.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def write_incomplete_marker(
+    *,
+    state: Dict[str, Any],
+    completed: int,
+    total: int,
+    current_pdf: str = "",
+    error: str = "",
+) -> None:
+    ensure_dir(Path(RUN_OUTPUT_DIR))
+    lines = [
+        "RUN_INCOMPLETE",
+        f"Mode: {RUN_MODE}",
+        f"Completed: {completed}/{total}",
+        f"Current or failed file: {current_pdf or 'not started'}",
+        f"Output directory: {RUN_OUTPUT_DIR}",
+    ]
+    if error:
+        lines.append(f"Error: {error}")
+    lines.append("See Logs_04/Run_Diagnostics.json for details.")
+    RUN_INCOMPLETE_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    state.update({
+        "status": "incomplete" if error else "running",
+        "completed_count": completed,
+        "expected_count": total,
+        "current_or_failed_pdf": current_pdf,
+        "error": error,
+    })
+    write_run_diagnostics(state)
+
+
+def write_success_marker(state: Dict[str, Any], batch_results: List[Dict[str, Any]], total: int) -> None:
+    total_records = sum(int(result.get("rows", 0)) for result in batch_results)
+    lines = [
+        "RUN_COMPLETED_SUCCESSFULLY",
+        f"Mode: {RUN_MODE}",
+        f"Completed: {len(batch_results)}/{total}",
+        f"Total records: {total_records}",
+        f"Output directory: {RUN_OUTPUT_DIR}",
+        "",
+        "Completed files:",
+    ]
+    for index, result in enumerate(batch_results, start=1):
+        lines.append(
+            f"{index}/{total}: {result.get('pdf_name', '')} - {int(result.get('rows', 0))} records"
+        )
+    RUN_SUCCESS_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    if RUN_INCOMPLETE_PATH.exists():
+        RUN_INCOMPLETE_PATH.unlink()
+    state.update({
+        "status": "completed",
+        "completed_count": len(batch_results),
+        "expected_count": total,
+        "total_records": total_records,
+        "completed_files": batch_results,
+        "error": "",
+    })
+    write_run_diagnostics(state)
 
 
 def build_run_config(pdf_name: str) -> RunConfig:
@@ -6439,10 +6588,16 @@ def build_run_config(pdf_name: str) -> RunConfig:
     )
 
 
-def run_one_pdf(pdf_name: str) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame], RunConfig]:
+def run_one_pdf(
+    pdf_name: str,
+    file_number: int,
+    total_files: int,
+    diagnostics_state: Dict[str, Any],
+) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame], RunConfig]:
     cfg = build_run_config(pdf_name)
 
     print("\n" + "=" * 80)
+    print(f"PROCESSING_FILE: {pdf_name} ({file_number}/{total_files})")
     print("Input PDF:", cfg.input_pdf)
     print("OCR fallback enabled:", cfg.enable_ocr_fallback)
     print("ArcheoBERTje enabled:", cfg.enable_archaeobertje)
@@ -6455,13 +6610,58 @@ def run_one_pdf(pdf_name: str) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame], R
 
     if pipeline.archaeobertje is not None:
         print("ArcheoBERTje available:", pipeline.archaeobertje.available)
+        print("ArcheoBERTje shared cache reused:", pipeline.archaeobertje.reused_shared_cache)
         if not pipeline.archaeobertje.available:
             print("ArcheoBERTje load error:", pipeline.archaeobertje.error_message)
+    diagnostics_state["model"] = {
+        "enabled": cfg.enable_archaeobertje,
+        "available": bool(pipeline.archaeobertje and pipeline.archaeobertje.available),
+        "model_name": cfg.archaeobertje_model_name,
+        "device": cfg.archaeobertje_device,
+        "reused_shared_cache": bool(pipeline.archaeobertje and pipeline.archaeobertje.reused_shared_cache),
+        "error": pipeline.archaeobertje.error_message if pipeline.archaeobertje else "model helper not created",
+    }
+    diagnostics_state["current_pdf"] = pdf_name
+    diagnostics_state["current_file_number"] = file_number
+    write_run_diagnostics(diagnostics_state)
 
-    print("LLM structural segmenter available:", pipeline.llm_structural_segmenter.available())
-    print("LLM reviewer available:", pipeline.llm_reviewer.available())
+    if cfg.enable_archaeobertje and not (pipeline.archaeobertje and pipeline.archaeobertje.available):
+        model_error = diagnostics_state["model"].get("error") or "unknown model-loading error"
+        raise RuntimeError(
+            "ArcheoBERTje is required for this RefAI run but is unavailable. "
+            f"The run was stopped before extraction to prevent misleading empty output. Details: {model_error}"
+        )
+
+    llm_structural_available = pipeline.llm_structural_segmenter.available()
+    llm_review_available = pipeline.llm_reviewer.available()
+    print("LLM structural segmenter available:", llm_structural_available)
+    print("LLM reviewer available:", llm_review_available)
+    diagnostics_state["llm"] = {
+        "structural_segmentation_enabled": cfg.enable_llm_structural_segmentation,
+        "structural_segmenter_available": llm_structural_available,
+        "review_enabled": cfg.enable_llm_review,
+        "reviewer_available": llm_review_available,
+        "anthropic_model": cfg.anthropic_model,
+    }
+    write_run_diagnostics(diagnostics_state)
+    if cfg.enable_llm_structural_segmentation and not llm_structural_available:
+        raise RuntimeError(
+            "SLM + LLM mode was requested, but the LLM structural segmenter is unavailable. "
+            "The run was stopped rather than silently continuing in a different mode."
+        )
+    if cfg.enable_llm_review and not llm_review_available:
+        raise RuntimeError(
+            "SLM + LLM mode was requested, but the LLM reviewer is unavailable. "
+            "Check the Anthropic API key and network connection, then rerun."
+        )
 
     output_df, review_frames = pipeline.run()
+
+    if output_df.empty:
+        raise RuntimeError(
+            f"RefAI produced zero records for {pdf_name}. The run was stopped and marked incomplete "
+            "instead of presenting an empty workbook as a successful extraction."
+        )
 
     print(f"Main output rows: {len(output_df)}")
     for name, frame in review_frames.items():
@@ -6474,23 +6674,25 @@ def run_one_pdf(pdf_name: str) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame], R
 
 pdf_names_to_run = BATCH_PDF_NAMES if RUN_BATCH_PDFS else [PDF_NAME]
 batch_results = []
-
-for pdf_name in pdf_names_to_run:
-    output_df, review_frames, cfg = run_one_pdf(pdf_name)
-    output_stem = make_output_stem(cfg.refai_version_name, Path(cfg.input_pdf))
-    run_dir = Path(cfg.output_dir)
-    batch_results.append({
-        "pdf_name": pdf_name,
-        "input_pdf": cfg.input_pdf,
-        "output_stem": output_stem,
-        "reviewed_xlsx": str(run_dir / "Reviewed_Outputs_01" / f"reviewed_{output_stem}.xlsx"),
-        "llm_reviewed_xlsx": str(run_dir / "Llm_Review_Outputs_02" / f"LLM_output_reviewed_{output_stem}.xlsx"),
-        "rows": len(output_df),
-        "output_dir": cfg.output_dir,
-        "run_output_dir": cfg.output_dir,
-    })
-
-batch_summary_df = pd.DataFrame(batch_results)
+total_files = len(pdf_names_to_run)
+ensure_dir(Path(RUN_OUTPUT_DIR))
+ensure_dir(RUN_LOGS_DIR)
+run_diagnostics = {
+    "status": "starting",
+    "run_started_at": RUN_STARTED_AT.isoformat(timespec="seconds"),
+    "mode": RUN_MODE,
+    "refai_version": REFAI_VERSION_NAME,
+    "expected_count": total_files,
+    "expected_files": list(pdf_names_to_run),
+    "completed_count": 0,
+    "output_directory": RUN_OUTPUT_DIR,
+    "environment": collect_runtime_versions(),
+    "preflight": collect_preflight_state(pdf_names_to_run),
+    "model": {"enabled": ENABLE_ARCHAEOBERTJE, "available": None, "model_name": ARCHAEOBERTJE_MODEL_NAME},
+    "completed_files": [],
+    "error": "",
+}
+write_incomplete_marker(state=run_diagnostics, completed=0, total=total_files)
 
 
 def show_result_table(value: Any) -> None:
@@ -6509,17 +6711,84 @@ def show_result_table(value: Any) -> None:
         print(value)
 
 
-print("\nBatch summary")
-show_result_table(batch_summary_df)
+try:
+    for file_number, pdf_name in enumerate(pdf_names_to_run, start=1):
+        output_df, review_frames, cfg = run_one_pdf(
+            pdf_name,
+            file_number,
+            total_files,
+            run_diagnostics,
+        )
+        output_stem = make_output_stem(cfg.refai_version_name, Path(cfg.input_pdf))
+        run_dir = Path(cfg.output_dir)
+        result = {
+            "pdf_name": pdf_name,
+            "input_pdf": cfg.input_pdf,
+            "output_stem": output_stem,
+            "reviewed_xlsx": str(run_dir / "Reviewed_Outputs_01" / f"reviewed_{output_stem}.xlsx"),
+            "llm_reviewed_xlsx": str(run_dir / "Llm_Review_Outputs_02" / f"LLM_output_reviewed_{output_stem}.xlsx"),
+            "rows": len(output_df),
+            "output_dir": cfg.output_dir,
+            "run_output_dir": cfg.output_dir,
+        }
+        batch_results.append(result)
+        run_diagnostics["status"] = "running"
+        run_diagnostics["completed_count"] = file_number
+        run_diagnostics["completed_files"] = batch_results
+        run_diagnostics["current_pdf"] = ""
+        next_stage = pdf_names_to_run[file_number] if file_number < total_files else "post-processing"
+        write_incomplete_marker(
+            state=run_diagnostics,
+            completed=file_number,
+            total=total_files,
+            current_pdf=next_stage,
+        )
+        print(
+            f"FILE_COMPLETED_SUCCESSFULLY: {pdf_name} "
+            f"({file_number}/{total_files} completed; {len(output_df)} records)"
+        )
 
-quality_summary_df, suspect_records_df = build_batch_quality_outputs(batch_results)
-print("\nBatch quality summary")
-show_result_table(quality_summary_df)
-print(f"Suspect records: {len(suspect_records_df)}")
+    batch_summary_df = pd.DataFrame(batch_results)
+    print("\nBatch summary")
+    show_result_table(batch_summary_df)
 
-if batch_results:
-    show_result_table(output_df.head(20))
-    for key in ["extractor_status", "low_confidence_sections", "gold_comparison", "unmapped_terms"]:
-        if key in review_frames and not review_frames[key].empty:
-            print(f"\nPreview last run: {key}")
-            show_result_table(review_frames[key].head(20))
+    quality_summary_df, suspect_records_df = build_batch_quality_outputs(batch_results)
+    print("\nBatch quality summary")
+    show_result_table(quality_summary_df)
+    print(f"Suspect records: {len(suspect_records_df)}")
+
+    if batch_results:
+        show_result_table(output_df.head(20))
+        for key in ["extractor_status", "low_confidence_sections", "gold_comparison", "unmapped_terms"]:
+            if key in review_frames and not review_frames[key].empty:
+                print(f"\nPreview last run: {key}")
+                show_result_table(review_frames[key].head(20))
+
+    write_success_marker(run_diagnostics, batch_results, total_files)
+    print("\n" + "=" * 80)
+    print("RUN_COMPLETED_SUCCESSFULLY")
+    print(f"Mode: {RUN_MODE}")
+    print(f"Completed: {len(batch_results)}/{total_files}")
+    print(f"Total records: {sum(int(result['rows']) for result in batch_results)}")
+    print(f"Output directory: {RUN_OUTPUT_DIR}")
+    print(f"Success marker: {RUN_SUCCESS_PATH}")
+except Exception as exc:
+    failed_pdf = pdf_names_to_run[len(batch_results)] if len(batch_results) < total_files else "post-processing"
+    error_text = f"{type(exc).__name__}: {exc}"
+    run_diagnostics["traceback"] = traceback.format_exc()
+    write_incomplete_marker(
+        state=run_diagnostics,
+        completed=len(batch_results),
+        total=total_files,
+        current_pdf=failed_pdf,
+        error=error_text,
+    )
+    print("\n" + "=" * 80)
+    print(
+        f"RUN_INCOMPLETE: {failed_pdf} "
+        f"({len(batch_results)}/{total_files} completed)"
+    )
+    print(f"Error: {error_text}")
+    print(f"Incomplete marker: {RUN_INCOMPLETE_PATH}")
+    print(f"Diagnostics: {RUN_DIAGNOSTICS_PATH}")
+    raise

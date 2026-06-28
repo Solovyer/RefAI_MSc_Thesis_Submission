@@ -22,8 +22,13 @@ There is one main Windows entry point:
 After extracting or cloning the package, open `Start_Here`, right-click
 `2_Start_Refai.ps1`, and select **Run with PowerShell**. Use this same file
 every time you want to install, check or run RefAI. On first use, choose menu
-option `1` and then option `2`. For later runs, normally choose option `4`
-(SLM-only) or option `5` (SLM + LLM).
+option `1` and then option `2`, **even when Python packages or Jupyter are
+already installed elsewhere on the computer**. RefAI uses its own local
+environment and option `2` also verifies that ArcheoBERTje can be loaded. For
+later runs, normally choose option `4` (SLM-only) or option `5` (SLM + LLM).
+
+When possible, extract the repository to a short local path such as `C:\RefAI`
+to reduce Windows and Excel path-length problems.
 
 Before first use, install **64-bit Python 3.12**. Python 3.13 and 3.14 are not
 currently compatible with the OCR dependency. The complete numbered guide is:
@@ -63,6 +68,12 @@ be written into the notebook, source code, documentation or deposited files.
 
 For detailed instructions, always use the numbered guide in `Start_Here`
 rather than older commands copied from previous development versions.
+
+A complete run contains `RUN_COMPLETED_SUCCESSFULLY.txt`, which lists the run
+mode, output location, total record count and every processed PDF as `1/7`,
+`2/7`, and so on. A folder containing `RUN_INCOMPLETE.txt` must not be treated
+as valid output; inspect `Logs_04/Run_Diagnostics.json` for the model status,
+runtime versions and failure details.
 
 ## Licence and Citation
 
