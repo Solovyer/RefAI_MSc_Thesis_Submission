@@ -1,177 +1,129 @@
-# RefAI Start Here
+# RefAI: Start Here
 
-This folder contains the recommended starting point for running RefAI on Windows.
-The original notebook and pipeline code are not modified by these startup files.
+This is the complete Windows installation and startup guide for RefAI. You do
+not need to open the Python code before using the startup menu.
 
-## What You Need
+## Which File Should I Open?
 
-- Windows 10 or Windows 11.
-- PowerShell.
-- A 64-bit Python installation. Python 3.12 is recommended.
-- Internet access during the first installation and first model download.
-- At least 8 GB RAM is recommended. A dedicated GPU is optional.
-- An Anthropic API key only if you want to use the optional LLM review.
+There are two important files in this folder:
 
-## Package Layout
+- `1_Start_Here.md` is the written instruction manual you are reading now.
+- `2_Start_Refai.ps1` is the file that starts RefAI.
 
-The startup files assume that this folder is located here:
+**Every time you want to install, check or run RefAI, return to this folder,
+right-click `2_Start_Refai.ps1`, and select `Run with PowerShell`.**
 
-```text
-RefAI_Deposition_Package/
-|-- Start_Here/
-|   |-- 1_Start_Here.md
-|   |-- 2_Start_Refai.ps1
-|   |-- 3_Requirements.txt
-|   |-- 4_Setup_Refai.ps1
-|   |-- 5_Check_Refai_Installation.ps1
-|   |-- 6_Launch_Refai_Jupyter.ps1
-|   |-- 7_Run_Refai_Slm_Only.ps1
-|   `-- 8_Run_Refai_With_Llm.ps1
-|-- Code/
-|-- Pdf/
-|-- Reference_Docs/
-`-- Output/
+The numbered files `3` to `8` are used by the startup menu. New users normally
+do not need to open them separately.
+
+## Before the First Installation
+
+### Step 1: Download and Extract the Package
+
+Download or clone the complete repository. If you downloaded a ZIP file:
+
+1. Save the ZIP file locally.
+2. Right-click the ZIP file and select `Properties`.
+3. If an `Unblock` checkbox is shown, select it and click `Apply`.
+4. Extract the complete ZIP file.
+5. Do not run RefAI from inside the ZIP preview.
+
+Keep the folder structure intact. The `Start_Here`, `Code`, `Pdf`,
+`Reference_Docs`, `Templates` and `Output` folders must remain together.
+
+### Step 2: Install Python 3.12
+
+RefAI supports 64-bit Python 3.10, 3.11 and 3.12. **Python 3.12 is strongly
+recommended. Python 3.13 and 3.14 are not currently supported** because the
+OCR dependency does not provide compatible packages for those versions.
+
+To install Python 3.12 with Windows Package Manager, open PowerShell and run:
+
+```powershell
+winget install --id Python.Python.3.12 -e
 ```
 
-Do not move `Start_Here` outside the RefAI package.
+Alternatively, download 64-bit Python 3.12 from `python.org`. Select
+`Add Python to PATH` during installation. Close and reopen PowerShell after
+installing Python.
 
-## Numbered Startup Files
+Confirm the installation:
 
-Use the files in this order:
+```powershell
+py -3.12 --version
+```
 
-1. `1_Start_Here.md`: read this guide first.
-2. `2_Start_Refai.ps1`: open the central startup menu.
-3. `3_Requirements.txt`: package list used automatically during setup.
-4. `4_Setup_Refai.ps1`: create the environment and install dependencies.
-5. `5_Check_Refai_Installation.ps1`: verify the installation and package files.
-6. `6_Launch_Refai_Jupyter.ps1`: open JupyterLab for notebook use.
-7. `7_Run_Refai_Slm_Only.ps1`: run the local SLM-only pipeline.
-8. `8_Run_Refai_With_Llm.ps1`: run the local pipeline with Anthropic review.
+The result should begin with `Python 3.12`.
 
-## How to Open and Run a PowerShell Script
+## Start RefAI
 
-A file ending in `.ps1` is a Windows PowerShell script. These files contain
-commands that PowerShell can execute automatically.
+### Normal Method
 
-To run a script:
+1. Open the extracted `Start_Here` folder.
+2. Right-click `2_Start_Refai.ps1`.
+3. Select `Run with PowerShell`.
+4. Choose an option from the menu.
 
-1. Open the `Start_Here` folder in Windows File Explorer.
-2. Right-click an empty area inside the folder.
-3. Select **Open in Terminal**. On some Windows versions this option may be
-   called **Open PowerShell window here**.
-4. Enter the following commands one at a time and press **Enter** after each
-   command:
+Use this same method whenever you want to start RefAI again. Closing the
+PowerShell window does not remove RefAI or its installed environment.
+
+### If Windows Blocks the Script
+
+This normally only needs to be solved once. Open the `Start_Here` folder,
+right-click an empty area, select `Open in Terminal`, and run:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Unblock-File .\*.ps1
 .\2_Start_Refai.ps1
 ```
 
-The first command temporarily permits the startup scripts to run. It applies
-only to the current PowerShell window and does not permanently change the
-Windows execution policy. The second command starts the RefAI menu.
+The execution-policy change applies only to that PowerShell window. After the
+files have been unblocked, the normal right-click method should work.
 
-Do not double-click a `.ps1` file as the main way to start RefAI. Windows may
-open the file in a text editor or close the PowerShell window before an error
-can be read. If you only want to inspect or edit a script, right-click it and
-open it with Notepad or Visual Studio Code.
+## What Do the Menu Options Mean?
 
-## Fastest Route
+1. **Install or repair RefAI**: use this first. It creates `.venv`, downloads
+   dependencies and registers the RefAI Jupyter kernel. Internet is required.
+2. **Check the installation**: verifies Python packages and required project
+   files. Run this after option 1.
+3. **Open JupyterLab**: opens the development notebook for interactive use.
+4. **Run SLM-only**: processes the seven configured test PDFs locally. This
+   does not require an Anthropic API key.
+5. **Run SLM + LLM**: runs local extraction followed by Anthropic review. An
+   Anthropic API key and internet connection are required.
+6. **Open this guide**: opens `1_Start_Here.md`.
+0. **Exit**: closes the startup menu.
 
-Open PowerShell in this `Start_Here` folder and run:
+## Recommended First-Time Sequence
 
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\2_Start_Refai.ps1
-```
+1. Right-click `2_Start_Refai.ps1` and select `Run with PowerShell`.
+2. Choose option `1` and wait for installation to finish. This may take time.
+3. Choose option `2`. A missing Anthropic key is only a warning for SLM-only
+   use; the important result is `0 failure(s)`.
+4. Choose option `4` for the first test run without LLM costs.
+5. Check the newest dated folder inside `Output`.
 
-The menu provides options to:
+For later sessions, right-click `2_Start_Refai.ps1` again and normally choose
+option `4` or `5`. Setup does not need to be repeated unless the environment
+is missing or damaged.
 
-1. install RefAI;
-2. check the installation;
-3. open RefAI in JupyterLab;
-4. run the SLM-only pipeline;
-5. run the SLM + LLM pipeline.
+## JupyterLab Use
 
-The execution-policy change applies only to the current PowerShell window.
-
-## First Installation
-
-Run:
-
-```powershell
-.\4_Setup_Refai.ps1
-```
-
-The setup script:
-
-- locates Python;
-- creates `.venv` in the package root;
-- upgrades `pip`;
-- installs `3_Requirements.txt`;
-- registers a Jupyter kernel named `RefAI`;
-- checks whether required folders and files exist.
-
-The setup does not edit `Code/Refai_V7.ipynb`.
-
-## Check the Installation
-
-Run:
-
-```powershell
-.\5_Check_Refai_Installation.ps1
-```
-
-This checks:
-
-- the virtual environment;
-- required Python imports;
-- the notebook and Python script;
-- PDF, reference and output folders;
-- the seven test PDFs;
-- the custom alias workbook;
-- the optional Anthropic API key.
-
-Warnings about the API key are normal when you only use SLM-only mode.
-
-## Use RefAI in JupyterLab
-
-Run:
-
-```powershell
-.\6_Launch_Refai_Jupyter.ps1
-```
-
-JupyterLab opens from the package root. Open:
+Choose menu option `3`. In JupyterLab, open:
 
 ```text
 Code/Refai_V7.ipynb
 ```
 
-Select the `RefAI` kernel if Jupyter asks which kernel to use. Execute the
-notebook cells from top to bottom. The notebook already contains the tested
-seven-PDF batch configuration.
-
-## Run Without JupyterLab
-
-For the deterministic local pipeline:
-
-```powershell
-.\7_Run_Refai_Slm_Only.ps1
-```
-
-For local extraction followed by optional Anthropic review:
-
-```powershell
-.\8_Run_Refai_With_Llm.ps1
-```
-
-The LLM script securely asks for the key when it is not already set. The key is
-stored only in the current PowerShell process and is not written to the package.
+Select the `RefAI` kernel if Jupyter asks which kernel to use. Execute notebook
+cells from top to bottom. The notebook contains the tested seven-PDF batch
+configuration.
 
 ## Where Results Appear
 
-Each run creates a dated folder inside `Output`. Important subfolders are:
+Every run creates a dated folder inside `Output`. The most important folders
+inside a run are:
 
 - `Reviewed_Outputs_01`: clean reviewed CSV and Excel output;
 - `Llm_Review_Outputs_02`: optional LLM review output;
@@ -179,82 +131,75 @@ Each run creates a dated folder inside `Output`. Important subfolders are:
 - `Logs_04`: processing and decision logs;
 - `Quality_Control_00`: suspect records and batch-quality summaries.
 
-Use the newest date-time folder when checking a new run.
+Use the newest date-time folder when reviewing a new run.
 
-## First Model Download
+## Problems Observed During Installation Tests
 
-When ArcheoBERTje is enabled, Transformers may download:
+### The PowerShell Window Immediately Disappears
 
-```text
-alexbrandsen/ArcheoBERTje
-```
+Do not double-click the script. Right-click `2_Start_Refai.ps1` and select
+`Run with PowerShell`. The startup menu now catches errors and keeps them
+visible. If Windows still closes the window, use the terminal method above.
 
-This can take time during the first run. Later runs normally use the local
-model cache.
+### Python Was Not Found
 
-## Common Problems
-
-### PowerShell blocks scripts
-
-Run this in the current terminal:
+Install 64-bit Python 3.12, close PowerShell, reopen it and run:
 
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+py -3.12 --version
 ```
 
-### Python cannot be found
+If Windows opens the Microsoft Store instead, Python is not correctly
+installed or the Windows app-execution alias is interfering. Installing the
+official Python 3.12 package normally resolves this.
 
-Install a 64-bit Python release and enable `Add Python to PATH`, then reopen
-PowerShell.
+### RapidOCR Has No Matching Distribution
 
-### The virtual environment is missing
+If the error mentions `cp313`, `cp314`, Python 3.13, Python 3.14 or
+`rapidocr-onnxruntime`, the virtual environment was created with an unsupported
+Python version. The updated setup detects this and recreates `.venv` with a
+supported Python version. Make sure `py -3.12 --version` works, then run menu
+option `1` again.
 
-Run:
+If manual cleanup is ever required, run this from `Start_Here`:
 
 ```powershell
-.\4_Setup_Refai.ps1
+Remove-Item "..\.venv" -Recurse -Force
 ```
 
-### JupyterLab does not open
+Then start `2_Start_Refai.ps1` again and choose option `1`.
 
-Run the setup again, or test:
+### PyPI Connection Was Reset or Shows `versions: none`
+
+This is normally a temporary internet, firewall, VPN or antivirus problem, not
+a missing Python package. The setup automatically uses extended retries. Run
+option `1` again. If the problem continues, test:
 
 ```powershell
-..\.venv\Scripts\python.exe -m jupyter lab
+Test-NetConnection pypi.org -Port 443
 ```
 
-### PDFs or reference files are missing
+If `TcpTestSucceeded` is `False`, try another trusted network, such as a mobile
+hotspot. Do not permanently disable security software merely to install RefAI.
 
-Do not rename or move package folders after setup. Run:
+### The Virtual Environment Is Missing
 
-```powershell
-.\5_Check_Refai_Installation.ps1
-```
+Right-click `2_Start_Refai.ps1`, choose `Run with PowerShell`, and select menu
+option `1`.
 
-### The LLM does not run
+### JupyterLab Does Not Open
 
-The LLM is optional. For LLM mode, obtain an Anthropic API key and use:
+First run menu option `2`. If the installation check reports failures, run
+option `1` again. JupyterLab should only be started after installation passes.
 
-```powershell
-.\8_Run_Refai_With_Llm.ps1
-```
+### The First Model Run Is Slow
 
-### OCR is slow
+When ArcheoBERTje is enabled, Transformers downloads
+`alexbrandsen/ArcheoBERTje` during the first run. OCR and local model processing
+can also be CPU intensive. Later runs normally reuse the local model cache.
 
-OCR and local model processing can be CPU intensive. Test SLM-only first and
-avoid starting multiple RefAI runs simultaneously.
+## API Key Safety
 
-## Recommended Workflow
-
-```powershell
-.\4_Setup_Refai.ps1
-.\5_Check_Refai_Installation.ps1
-.\6_Launch_Refai_Jupyter.ps1
-```
-
-For later runs, setup normally does not need to be repeated:
-
-```powershell
-.\5_Check_Refai_Installation.ps1
-.\7_Run_Refai_Slm_Only.ps1
-```
+An Anthropic API key is only needed for menu option `5`. The startup script
+asks for the key for the current PowerShell process and does not write it into
+the package. Never add API keys to the notebook, source code or Git repository.

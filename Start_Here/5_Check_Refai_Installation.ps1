@@ -38,6 +38,12 @@ if (Test-Path -LiteralPath $VenvPython) {
     Pass "Virtual-environment Python found."
     $Version = & $VenvPython --version 2>&1
     Write-Host "       $Version"
+    $VersionSupported = & $VenvPython -c "import sys; print('yes' if (3, 10) <= sys.version_info[:2] <= (3, 12) else 'no')" 2>$null
+    if ($LASTEXITCODE -eq 0 -and ($VersionSupported | Select-Object -Last 1).Trim() -eq "yes") {
+        Pass "Python version is supported (3.10-3.12)."
+    } else {
+        Fail "Unsupported Python version. RefAI currently requires Python 3.10-3.12; Python 3.12 is recommended."
+    }
 } else {
     Fail "Virtual environment missing. Run 4_Setup_Refai.ps1."
 }

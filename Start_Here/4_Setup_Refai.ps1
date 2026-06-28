@@ -8,20 +8,28 @@ $Requirements = Join-Path $StartHere "3_Requirements.txt"
 
 function Find-Python {
     if (Get-Command py -ErrorAction SilentlyContinue) {
-        try {
-            $null = & py -3.12 -c "import sys; print(sys.executable)" 2>$null
-            if ($LASTEXITCODE -eq 0) {
-                return @("py", "-3.12")
-            }
-        } catch {}
-        return @("py", "-3")
+        foreach ($Version in @("3.12", "3.11", "3.10")) {
+            try {
+                $null = & py "-$Version" -c "import sys; print(sys.executable)" 2>$null
+                if ($LASTEXITCODE -eq 0) {
+                    return @("py", "-$Version")
+                }
+            } catch {}
+        }
     }
 
     if (Get-Command python -ErrorAction SilentlyContinue) {
-        return @("python")
+        try {
+            $VersionSupported = & python -c "import sys; print('yes' if (3, 10) <= sys.version_info[:2] <= (3, 12) else 'no')" 2>$null
+            if ($LASTEXITCODE -eq 0) {
+                if (($VersionSupported | Select-Object -Last 1).Trim() -eq "yes") {
+                    return @("python")
+                }
+            }
+        } catch {}
     }
 
-    throw "Python was not found. Install 64-bit Python 3.12 and reopen PowerShell."
+    throw "RefAI requires 64-bit Python 3.10, 3.11 or 3.12 (3.12 recommended). Python 3.13 and 3.14 are not currently compatible with the OCR dependency. Install Python 3.12 and reopen PowerShell."
 }
 
 Write-Host ""
@@ -34,7 +42,18 @@ if (-not (Test-Path -LiteralPath $Requirements)) {
 
 $PythonCommand = @(Find-Python)
 
-if (-not (Test-Path -LiteralPath $VenvPython)) {
+$CreateVenv = -not (Test-Path -LiteralPath $VenvPython)
+
+if (-not $CreateVenv) {
+    $VenvVersionSupported = & $VenvPython -c "import sys; print('yes' if (3, 10) <= sys.version_info[:2] <= (3, 12) else 'no')" 2>$null
+    if ($LASTEXITCODE -ne 0 -or ($VenvVersionSupported | Select-Object -Last 1).Trim() -ne "yes") {
+        Write-Host "Existing .venv uses an unsupported Python version; recreating it..." -ForegroundColor Yellow
+        Remove-Item -LiteralPath $VenvDir -Recurse -Force
+        $CreateVenv = $true
+    }
+}
+
+if ($CreateVenv) {
     Write-Host "Creating virtual environment in .venv..." -ForegroundColor Yellow
     if ($PythonCommand.Count -eq 2) {
         & $PythonCommand[0] $PythonCommand[1] -m venv $VenvDir
@@ -49,13 +68,13 @@ if (-not (Test-Path -LiteralPath $VenvPython)) {
 }
 
 Write-Host "Upgrading pip..." -ForegroundColor Yellow
-& $VenvPython -m pip install --upgrade pip setuptools wheel
+& $VenvPython -m pip install --upgrade pip wheel "setuptools<82" --retries 10 --timeout 120
 if ($LASTEXITCODE -ne 0) {
     throw "pip upgrade failed."
 }
 
 Write-Host "Installing RefAI requirements..." -ForegroundColor Yellow
-& $VenvPython -m pip install -r $Requirements
+& $VenvPython -m pip install -r $Requirements --retries 10 --timeout 120
 if ($LASTEXITCODE -ne 0) {
     throw "Dependency installation failed."
 }

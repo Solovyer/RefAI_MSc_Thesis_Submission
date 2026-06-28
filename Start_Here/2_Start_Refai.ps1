@@ -7,7 +7,19 @@ function Run-Script($Name) {
     if (-not (Test-Path -LiteralPath $Script)) {
         throw "Startup script not found: $Script"
     }
-    & $Script
+    try {
+        $global:LASTEXITCODE = 0
+        & $Script
+        if ($LASTEXITCODE -ne 0) {
+            throw "Step ended with exit code $LASTEXITCODE."
+        }
+    } catch {
+        Write-Host ""
+        Write-Host "The selected RefAI step did not finish successfully." -ForegroundColor Red
+        Write-Host $_.Exception.Message -ForegroundColor Red
+        Write-Host "The window will remain open so the error can be read." -ForegroundColor Yellow
+        [void](Read-Host "Press Enter to return to the startup menu")
+    }
 }
 
 while ($true) {
@@ -15,12 +27,15 @@ while ($true) {
     Write-Host "====================================" -ForegroundColor DarkCyan
     Write-Host " RefAI Startup Menu" -ForegroundColor Cyan
     Write-Host "====================================" -ForegroundColor DarkCyan
-    Write-Host "1. Run step 4: install or update RefAI environment"
-    Write-Host "2. Run step 5: check installation"
-    Write-Host "3. Run step 6: open JupyterLab"
-    Write-Host "4. Run step 7: SLM-only batch"
-    Write-Host "5. Run step 8: SLM + LLM batch"
-    Write-Host "6. Open step 1: Start Here guide"
+    Write-Host "First use: choose 1, then 2." -ForegroundColor Yellow
+    Write-Host "Later use: reopen this file and choose 4 or 5." -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "1. First installation or repair"
+    Write-Host "2. Verify the installation"
+    Write-Host "3. Open JupyterLab"
+    Write-Host "4. Run SLM-only batch (no API key)"
+    Write-Host "5. Run SLM + LLM batch (API key required)"
+    Write-Host "6. Open the written Start Here guide"
     Write-Host "0. Exit"
     Write-Host ""
 
@@ -38,6 +53,7 @@ while ($true) {
     }
 
     if ($Choice -eq "0") {
+        Write-Host "Closing RefAI. To use it again, right-click 2_Start_Refai.ps1 and select Run with PowerShell."
         break
     }
 }

@@ -15,29 +15,32 @@ historical PDF corpus is not included.
 
 ## Start Here
 
-New users should first open the numbered startup guide:
+There is one main Windows entry point:
 
-**[Open the RefAI Start Here guide](Start_Here/1_Start_Here.md)**
+**`Start_Here/2_Start_Refai.ps1`**
 
-The `Start_Here` folder is the single recommended entry point for installing
-and running RefAI. Its numbered files explain the intended order and cover
-PowerShell, dependency installation, installation checks, JupyterLab,
-SLM-only processing, optional Anthropic LLM review and troubleshooting.
+After extracting or cloning the package, open `Start_Here`, right-click
+`2_Start_Refai.ps1`, and select **Run with PowerShell**. Use this same file
+every time you want to install, check or run RefAI. On first use, choose menu
+option `1` and then option `2`. For later runs, normally choose option `4`
+(SLM-only) or option `5` (SLM + LLM).
 
-The shortest startup route is:
+Before first use, install **64-bit Python 3.12**. Python 3.13 and 3.14 are not
+currently compatible with the OCR dependency. The complete numbered guide is:
 
-1. Open the `Start_Here` folder.
-2. Right-click an empty area and select **Open in Terminal**.
-3. Run the following commands one at a time:
+**[Open the detailed RefAI Start Here guide](Start_Here/1_Start_Here.md)**
+
+If Windows blocks the right-click method, open a terminal in `Start_Here` and
+run these commands once:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Unblock-File .\*.ps1
 .\2_Start_Refai.ps1
 ```
 
-The execution-policy change applies only to the current PowerShell window.
-Do not start with files in `Code/` unless you deliberately want to inspect or
-manually operate the notebook or Python pipeline.
+Do not start with files in `Code/` unless you deliberately want to inspect the
+notebook or Python pipeline.
 
 ## Main Package Folders
 
